@@ -1,0 +1,11 @@
+.MainWrap{
+  background-color: #ffffff;
+  margin: 5vh;
+  padding: 2vh;
+  height: 150vh;
+}
+.flexBox{
+  display: flex;
+  flex-direction: column;
+}
+
