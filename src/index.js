@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM  from 'react-dom';
 
-import './css/Index.css';
+import './css/index.css';
 import Router from './Router';
 
 ReactDOM.render(

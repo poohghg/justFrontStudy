@@ -13,6 +13,7 @@ const Main = () =>{
             <div className="MainWrap">
                 <div>메인페이지 테스트</div>
                 <div>메엔페이지 리소스 </div>
+                <div>메엔페이지 테스트 </div>
             </div>
         </>
     )
