@@ -1,16 +1,50 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing:border-box;
+}
+a{
+  margin-bottom: 3px;
+  text-decoration: none;
+}
+.asideLink{
+  font-size: 0.8rem;
+  color: #282c34;  
+}
 .App {
+  width: 100%;
   text-align: center;
   background-color: #282c34;
   height: 100vh;
   min-height: 100vh;
   color: #ffffff;
-}
+  display: flex;
+  flex-direction: row;}
 .main{
-  
+  margin-top: 15vh;
+  display: block;
+  text-align: center;
+  width: 80vw;
 }
 .aside{
-  max-width: 20vw;
+  display: block;
+  position: relative;
+  color: #282c34; 
+  width: 20vw;
   background-color: #ffffff;
   height: 100vh;
 }
+.asideWrap{
+  margin-top: 15vh;
+  width: 20vw;
+  position: fixed;
+  text-align: center;
+  height: 100vh;
+}
+.flexBox{
+  display: flex;
+  flex-direction: column;
+  margin: 1vw;
+}
+
 

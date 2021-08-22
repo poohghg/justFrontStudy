@@ -9,11 +9,11 @@ const UseCallbackTest = () =>{
     
     const onChiledClick = useCallback(() =>{
         console.log("_onChiledClick")
-    // 최도 컴포넌트 바운드시에만 함수 바인딩
+    // 최초 컴포넌트 바운드시에만 함수 바인딩
     },[])
 
     /**
-     * 이렇게 쓰면 props의 참조타입의 변화로 state가 변경될때마다 내번 렌더
+     * 이렇게 쓰면 props의 참조타입의 변화로 state가 변경될때마다 랜더
      */
     // const onChiledClick = () =>{
     //     console.log("_onChiledClick")
@@ -36,7 +36,6 @@ const UseCallbackTest = () =>{
             <ChiledComp callBack = {onChiledClick} />
             <button className="mainChiled" onClick = {useSetState}> setState</button>
             <button className="mainChiled" onClick = {useTestState}> useTestState</button>
-            {/* 여기만 변경하게 해보기 */}
             {state ? <div className="stateTureRender"> state - ture (rneder)</div> : null}
             {stateTest ? <div className="stateTureRender"> stateTest - ture (rneder)</div> : null}
         </>

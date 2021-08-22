@@ -17,18 +17,18 @@ import './css/App.css';
 
 function App() {
   return (
-    <div className="main">
-      <Aside/>
-      <div className= "Main">
+    <div className="App">
         <BrowserRouter>
+          <Aside/>
           <ScrollToTop/>
-          <Switch>
-            <Route exact path="/" component={Main}/>
-            <Route exact path="/Test" component={Test}/>
-            <Route exact path="/UseCallbackTest" component={UseCallbackTest}/>
-          </Switch>
+          <div className= "main">
+            <Switch>
+              <Route exact path="/" component={Main}/>
+              <Route exact path="/Test" component={Test}/>
+              <Route exact path="/UseCallbackTest" component={UseCallbackTest}/>
+            </Switch>
+          </div>
         </BrowserRouter>
-      </div>
     </div>
   );
 }
