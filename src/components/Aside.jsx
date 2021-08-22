@@ -1,14 +1,17 @@
 import React, { useCallback, useState } from "react";
 import {Link} from "react-router-dom";
-const Aside = () =>{
+const Aside = ({pathComponet}) =>{
+    console.log("aside")
     return(
         <>
             <div className="aside">
                 <div className="asideWrap">
                     <div className="flexBox">
-                        <Link className="asideLink" to ="/"> MAIN LINK</Link>
-                        <Link className="asideLink" to ="UseCallbackTest/"> UseCallbackTest</Link>
-                        <Link className="asideLink" to ="/test"> TEST LINK</Link>
+                        {
+                            pathComponet.map((pathDatas,index)=>(
+                                <Link key={index} className="asideLink" to={pathDatas.path}> {pathDatas.componentDesc}</Link>
+                            ))
+                        }
                     </div>
                 </div>
             </div>

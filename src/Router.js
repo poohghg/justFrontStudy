@@ -13,13 +13,19 @@ import Test from'./components/Test'
 //pratice
 
 import UseCallbackTest from "./components/pratice/UseCallBack"
-import './css/App.css';                            
+import './css/App.css';
+
+const pathComponet = [
+  {path : "/", componentDesc : "Main"},
+  {path : "/Test", componentDesc : "Test"},
+  {path : "/UseCallbackTest", componentDesc : "UseCallbackTest"},
+]
 
 function App() {
   return (
     <div className="App">
         <BrowserRouter>
-          <Aside/>
+          <Aside pathComponet = {pathComponet}/>
           <ScrollToTop/>
           <div className= "main">
             <Switch>
