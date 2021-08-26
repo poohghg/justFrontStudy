@@ -3,11 +3,9 @@ import React, { useEffect, useState,useCallback } from "react";
 // test component
 // setState를 이전 state 값을 받아 업데이트 하고 매개변수 없는 함수를 만들어보자
 const Test = () =>{
-  
-  const [title,setTitle] = useState("");
+  console.log("render - Test")
   const [id,setId] = useState(0);
   const [list,setList] = useState([])
-
 
   /**
    * 자바스크립트 엔진은 동기함수를 마주치면 바로 실행할 수 있는 콜스택(Call Stack)에 바로 
@@ -16,29 +14,27 @@ const Test = () =>{
    * 비동기함수를 포함한 콜백큐(Callback Queue)에 있는 함수들을 들어간 순서대로(Queue) 
    * 콜스택에 넣어줘서 실행시키도록 해줍니다.
    */
-
   useEffect(()=>{
-
-  },[])
+    console.log("useEffect-rneder")
+    if (id !==0) {
+      console.log("id : ", id);
+      const curId = id;
+      const curTitle = "curTitle_" + String(id) ;
+      const newValies = {id:curId,title:curTitle}
+      setList([...list,newValies])
+    }
+  },[id])
   
   function add(){
-    console.log("id : " , id)
-    setId((id) => id+1)
-    setTitle((title) => "title_" + String(id));
-    // log - 0
-    console.log("setId : " , id)
+    setId(id => id+1)
   }
-
 
   function deleteList(e){
     //event 속성 data를 받아옴
-    console.log("e.target",e.target.dataset.id)
     const id = Number(e.target.dataset.id);
-    
     // 객체 재할당
     // 현재 넘겨받은 아이디와 같지 않은 아이디를 제외하고 리스트를 다시만듬
-    const newList = list.filter(data => data.id !==id);
-    setList(list => newList);
+    setList(list.filter(data => data.id !==id));
   }
 
   //키는 하나의 리스트 최상부에 주어여한다.

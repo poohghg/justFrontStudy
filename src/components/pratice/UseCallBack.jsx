@@ -7,9 +7,9 @@ const UseCallbackTest = () =>{
     const [state,setState] = useState(false);
     const [stateTest,setStateTest] = useState(false);
     
+    // 최초 컴포넌트 바운드시에만 함수 바인딩
     const onChiledClick = useCallback(() =>{
         console.log("_onChiledClick")
-    // 최초 컴포넌트 바운드시에만 함수 바인딩
     },[])
 
     /**
@@ -17,7 +17,6 @@ const UseCallbackTest = () =>{
      */
     // const onChiledClick = () =>{
     //     console.log("_onChiledClick")
-    // // 최도 컴포넌트 바운드시에만 함수 바인딩
     // }
     
     function useSetState() {
