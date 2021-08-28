@@ -2,8 +2,10 @@ import React, { useRef, useState, useMemo, useCallback } from 'react';
 import UserList from './useMemoComp/UserList';
 import CreateUser from './useMemoComp/CreateUser';
 
+import "../../css/useMemo.css"
+
+
     function countActiveUsers(users) {
-        console.log('활성 사용자 수를 세는중...');
         return users.filter(user => user.active).length;
     }
 
@@ -14,15 +16,12 @@ import CreateUser from './useMemoComp/CreateUser';
 
     function App() {
         console.log("new render")
+        //초기값 세팅
         const [inputs, setInputs] = useState({
             username: '',
             email: '',
-            active : false
+            active: false
         });
-
-        console.log("inputs",inputs)
-
-
         const [users, setUsers] = useState([
             {
               id: 1,
@@ -42,36 +41,36 @@ import CreateUser from './useMemoComp/CreateUser';
               email: 'liz@example.com',
               active: false
             }
-          ]);        
+          ]);
         const { username, email, active } = inputs;
-        console.log("inputs",inputs)
+        // event의 value값은 string으로 넘어옴 !!!! 주의
+        // checkd 값은 boolean으로 넘어옴
         const onChange = useCallback(e => {
-            const { name, value} = e.target;
-            console.log("name-value : ", name , value)
+            console.log("e.target.checked : ",e.target.checked)
+            const { name, value, checked} = e.target;
+            const newValue = name === "active" ? checked : value;
             setInputs(inputs => ({
-            ...inputs,
-            [name]: value
+                ...inputs,
+                [name]: newValue
             }));
         }, []);
 
         const nextId = useRef(4);
         const onCreate = useCallback(() => {
-        const user = {
-            id: nextId.current,
-            username,
-            email,
-            active
-        };
-
-        console.log("users",users)
-        setUsers(users => users.concat(user));
-        setInputs({
-            username: '',
-            email: '',
-            active : false
-            });
+            const user = {
+                id: nextId.current,
+                username,
+                email,
+                active
+            };
+            setUsers(users => users.concat(user));
+            setInputs({
+                username: '',
+                email: '',
+                active : false
+                });
         nextId.current += 1;
-        }, [username, email]);
+        }, [username, email, active]);
 
         const onRemove = useCallback(id => {
             // user.id 가 파라미터로 일치하지 않는 원소만 추출해서 새로운 배열을 만듬
@@ -81,50 +80,47 @@ import CreateUser from './useMemoComp/CreateUser';
 
         const onToggle = useCallback(id => {
             setUsers(users =>
-            users.map(user =>
-            user.id === id ? { ...user, active: !user.active } : user
+                users.map(user =>
+                    user.id === id ? { ...user, active: !user.active } : user
             )
-            );
-            }, []);
+        );
+        },[]);
+        
         const count = useMemo(
             () => countActiveUsers(users)
             , [users]
         );
-        // const count = useMemo(
-        //     () => countActiveUsers(users)
-        //     , [users]
-        // );
         return (
-            <>
-                <CreateUser
-                    creatType = {"input"}
-                    name = {"username"}
-                    value={username}
-                    placeholder = {"이름을 입력해주세요"}
-                    onChange={onChange}
-                    onCreate={onCreate}
-                    
-                />
-                <CreateUser
-                    creatType = {"input"}
-                    name = {"email"}
-                    value={email}
-                    placeholder = {"이메일을 입력해주세요"}
-                    onChange={onChange}
-                    onCreate={onCreate}
-                />
-                <CreateUser
-                    creatType = {"radio"}
-                    name = {"active"}
-                    value={active}
-                    placeholder = {"활동유무를 등록해주세요"}
-                    onChange={onChange}
-                    onCreate={onCreate}
-                />
-                <button onClick={onCreate}>등록</button>
+            <div className="postWarp">
+                <div className="postForm">
+                    <p>사용자 등록폼</p>
+                    <CreateUser
+                        creatType = {"input"}
+                        name = {"username"}
+                        value={username}
+                        placeholder = {"이름을 입력해주세요"}
+                        onChange={onChange}
+                        
+                    />
+                    <CreateUser
+                        creatType = {"input"}
+                        name = {"email"}
+                        value={email}
+                        placeholder = {"이메일을 입력해주세요"}
+                        onChange={onChange}
+                    />
+                    <CreateUser
+                        creatType = {"checkbox"}
+                        name = {"active"}
+                        value={active}
+                        placeholder = {"활동유무를 등록해주세요"}
+                        onChange={onChange}
+                    />
+                    <button onClick={onCreate}>등록</button>
+                </div>
                 <UserList users={users} onRemove={onRemove} onToggle={onToggle} />
                 <div>활성사용자 수 : {count}</div>
-            </>
+            </div>
         );
     }   
 

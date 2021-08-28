@@ -1,0 +1,28 @@
+.postWarp{
+    text-align: center;
+}
+.postForm{
+    display: inline-block;
+    text-align: center;
+    width: 30vw;
+    border: 1px solid skyblue;
+    border-radius: 15px;
+    box-shadow: 0 0 0.5px 0.2px #ffffff inset;
+    margin-bottom: 5vh;
+    padding: 1vw;
+}
+.creatUserBox{
+    margin-top: 5px;
+    display: flex;
+    justify-content: flex-start;
+}
+.creatUserBoxItem1{
+    flex-grow: 1;
+    flex-shrink: 1;    
+    flex-basis : 0
+}
+.creatUserBoxItem2{
+    flex-grow: 2;
+    flex-shrink: 2;    
+    flex-basis : 0
+}
