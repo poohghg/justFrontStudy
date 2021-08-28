@@ -1,4 +1,4 @@
 .MainWrap{color: #Ffffff;}
 .ChiledWrap{width: 100%;display: flex;flex-direction: column;align-items: center;}
-.mainChiled{display: inline-block;margin-top: 5vh;width: 10vw;text-align: center;olor: blue;}
+.mainChiled{display: inline-block;margin-top: 5vh;width: 10vw;text-align: center;color: blue;}
 .stateTureRender{margin-top: 2vh; border: 1px solid #ffffff; padding: 15px; font-size: 0.8rem; color: #ffffff;}

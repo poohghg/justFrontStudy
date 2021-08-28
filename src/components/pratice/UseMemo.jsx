@@ -1,9 +1,7 @@
 import React, { useRef, useState, useMemo, useCallback } from 'react';
 import UserList from './useMemoComp/UserList';
 import CreateUser from './useMemoComp/CreateUser';
-
 import "../../css/useMemo.css"
-
 
     function countActiveUsers(users) {
         return users.filter(user => user.active).length;
@@ -73,8 +71,6 @@ import "../../css/useMemo.css"
         }, [username, email, active]);
 
         const onRemove = useCallback(id => {
-            // user.id 가 파라미터로 일치하지 않는 원소만 추출해서 새로운 배열을 만듬
-            // = user.id 가 id 인 것을 제거함
             setUsers(users => users.filter(user => user.id !== id));
         }, []);
 
@@ -100,7 +96,6 @@ import "../../css/useMemo.css"
                         value={username}
                         placeholder = {"이름을 입력해주세요"}
                         onChange={onChange}
-                        
                     />
                     <CreateUser
                         creatType = {"input"}
