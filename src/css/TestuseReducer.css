@@ -1,0 +1,35 @@
+/* input box css 초기화 */
+.talckPostWrap {
+  padding: 0 5vw;
+}
+.talckPostWrap input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  width: 100%;
+}
+
+.talkActiveNm {
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+.talkMaskValueNmWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 10vh;
+}
+
+.talkMaskValueNm {
+  display: inline-block;
+  border: 2px solid #a8a921;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  padding: 0 5px;
+}
+
+.active {
+  background-color: #a8a921;
+}
+.talkPostMain {
+}
