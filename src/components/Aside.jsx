@@ -11,13 +11,27 @@ const Aside = ({ pathComponet }) => {
             <p className="asideUlTitle"> REACT</p>
             <li className="asideLiLink">
               {pathComponet.map((pathDatas, index) => (
-                <ul className="asideIlContetn" key={pathDatas.path}>
+                <ul key={pathDatas.path} className="asideIlContetn">
                   <Link className="asideLink" to={pathDatas.path}>
                     {pathDatas.componentDesc}
                   </Link>
                 </ul>
               ))}
             </li>
+            <p className="asideUlTitle"> REACT</p>
+            <p className="asideUlTitle"> REACT</p>
+            <p className="asideUlTitle"> REACT</p>
+
+            {/* <p className="asideUlTitle"> REACT</p>
+            <li className="asideLiLink">
+              {pathComponet.map((pathDatas, index) => (
+                <ul key={pathDatas.path} className="asideIlContetn">
+                  <Link className="asideLink" to={pathDatas.path}>
+                    {pathDatas.componentDesc}
+                  </Link>
+                </ul>
+              ))}
+            </li> */}
           </ul>
         </div>
       </div>

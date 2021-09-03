@@ -1,7 +1,6 @@
 import React from "react";
 const TalkMaskValueNm = React.memo(() => {
   function curActiveNm(e) {
-    console.log("e", e.target);
     const { id, className } = e.target;
     if (!String(className).includes("active")) {
       document.getElementById(id).classList.add("active");

@@ -1,13 +1,23 @@
 import React, { useEffect, useState, useCallback, useReducer } from "react";
 import TalkMaskValueNm from "./talkComp/TalkMaskValueNm";
+import OnInput from "./common/CommonInput";
 import "../../css/TestuseReducer.css";
+
+const StaticBottom = React.memo(() => {
+  return (
+    <div className="TalkBottomWrap">
+      <span>이모티콘</span>
+      <div>
+        <button> 확인</button>
+      </div>
+    </div>
+  );
+});
 
 const initstate = {
   inputs: {
-    userNm: "",
     title: "",
-    phoneNum: null,
-    active: false
+    desc: ""
   },
   users: [
     {
@@ -26,14 +36,15 @@ function reducer(state, action) {
       return {
         ...state,
         inputs: {
-          ...state.input,
-          [action.nmae]: action.value
+          ...state.inputs,
+          [action.name]: action.value
         }
       };
     case "CREATE_USER":
       return {
         ...state,
-        user: state.users.concat(action.user)
+        // 새로운 객체를 반환
+        users: state.users.concat(action.user)
       };
     default:
       return state;
@@ -43,21 +54,40 @@ function reducer(state, action) {
 const TestUseReducer = () => {
   const [state, dispatch] = useReducer(reducer, initstate);
   const users = state;
-  const { userNm, title, phoneNum, active } = state.inputs;
+  console.log("state", state);
+  console.log("users", users);
+  const { title, desc } = state.inputs;
+  const onChageInput = useCallback((e) => {
+    const { name, value } = e.target;
+    dispatch({
+      type: "CHANGE_INPUT",
+      name,
+      value
+    });
+  }, []);
 
   return (
-    <div class="talckPostWrap">
-      <div className="talkActiveNm">톡 등록하기</div>
-      <TalkMaskValueNm />
-      <div class="talkPostSection">
-        <input
-          className="talkTitleInput"
-          type="input"
+    <>
+      <div className="talckPostWrap">
+        <div className="talkActiveNm">톡 등록하기</div>
+        <TalkMaskValueNm />
+        <OnInput
+          createType="text"
           name={"title"}
+          value={title}
           placeholder={"제목을 입력해주세요"}
+          onChange={onChageInput}
+        />
+        <OnInput
+          createType="text"
+          name={"desc"}
+          value={desc}
+          placeholder={"내용을 입력해주세요"}
+          onChange={onChageInput}
         />
       </div>
-    </div>
+      <StaticBottom />
+    </>
   );
 };
 
