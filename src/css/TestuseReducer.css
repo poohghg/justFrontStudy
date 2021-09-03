@@ -2,14 +2,6 @@
 .talckPostWrap {
   padding: 0 5vw;
 }
-.talckPostWrap input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: none;
-  width: 100%;
-}
-
 .talkActiveNm {
   font-weight: bolder;
   font-size: 1.5rem;
@@ -31,5 +23,6 @@
 .active {
   background-color: #a8a921;
 }
-.talkPostMain {
+.talkPostSection {
+  margin-top: 25px;
 }
