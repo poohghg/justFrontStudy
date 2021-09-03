@@ -1,50 +1,113 @@
 * {
   margin: 0px;
   padding: 0px;
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
-a{
+a {
   margin-bottom: 3px;
   text-decoration: none;
 }
-.asideLink{
-  font-size: 0.8rem;
-  color: #282c34;  
+ul {
+  list-style: none;
 }
-.App {
+input:focus {
+  outline: none;
+}
+input {
+  /* 상단은 input style 초기화 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
   width: 100%;
-  text-align: center;
-  background-color: #282c34;
+  padding-left: 2.5px;
+  padding-bottom: 3px;
+  font-size: 1.2rem;
+  background-color: inherit;
+  color: #ffffff;
+  border-bottom: 0.5px solid #ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
   height: 100vh;
   min-height: 100vh;
-  color: #ffffff;
-  display: flex;
-  flex-direction: row;}
-.main{
-  margin-top: 15vh;
-  display: block;
-  text-align: center;
-  width: 80vw;
 }
-.aside{
-  display: block;
+
+.App {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+.main {
+  width: 980px;
+  background-color: #282c34;
   position: relative;
-  color: #282c34; 
-  width: 20vw;
-  background-color: #ffffff;
-  height: 100vh;
-}
-.asideWrap{
-  margin-top: 15vh;
-  width: 20vw;
-  position: fixed;
+  display: block;
+  padding-top: 40px;
   text-align: center;
-  height: 100vh;
+  color: #ffffff;
 }
-.flexBox{
+.mainWrap {
+  padding: 15px 25px;
+}
+.aside {
+  color: #282c34;
+  width: 240px;
+  background-color: #ffffff;
+  margin: 0px 30px;
+}
+
+@media (max-width: 980px) {
+  .aside {
+    display: none;
+  }
+}
+.asideWrap {
+  position: sticky;
+  top: 40px;
   display: flex;
+  height: fit-content;
   flex-direction: column;
-  margin: 1vw;
 }
-
-
+.asideTitle {
+  font-size: 1.2rem;
+  font-weight: bolder;
+  text-align: center;
+  border: 2px solid rgba(70, 77, 82, 0.082);
+  box-shadow: rgb(0 0 0 / 2%) -1px 1px 6px;
+  border-radius: 16px;
+}
+.asideLinkWrap {
+  margin-top: 35px;
+  justify-content: flex-start;
+  border: 2px solid rgba(70, 77, 82, 0.082);
+  box-shadow: rgb(0 0 0 / 2%) -1px 1px 6px;
+  border-radius: 16px;
+}
+.asideUlTitle {
+  font-size: 1.2rem;
+  font-weight: bolder;
+  text-align: center;
+  padding: 2.5px 0px;
+  border-bottom: 1px solid rgba(70, 77, 82, 0.082);
+}
+.asideLiLink {
+  margin-left: 15px;
+}
+.asideLink {
+  font-size: 0.8rem;
+  color: #282c34;
+}
+.asideIlContetn {
+  font-size: 1.1rem;
+  font-weight: 400;
+  padding: 2.5px 0px;
+}
