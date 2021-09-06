@@ -57,7 +57,8 @@ body {
   padding: 0;
 }
 .main {
-  width: 980px;
+  width: 85vw;
+  max-width: 980px;
   background-color: #282c34;
   position: relative;
   display: block;
@@ -70,7 +71,8 @@ body {
 }
 .aside {
   color: #282c34;
-  width: 240px;
+  width: 15vw;
+  max-width: 240px;
   background-color: #ffffff;
   margin: 0px 30px;
 }
@@ -79,13 +81,18 @@ body {
   .aside {
     display: none;
   }
+  .main {
+    width: 100vw;
+  }
 }
+
 .asideWrap {
   position: sticky;
   top: 8vh;
   display: flex;
   height: fit-content;
   flex-direction: column;
+  flex-wrap: wrap;
 }
 .asideTitle {
   font-size: 1.2rem;

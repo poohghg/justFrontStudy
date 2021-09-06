@@ -1,21 +1,32 @@
-import React, {useEffect } from "react";
+import React, { useEffect } from "react";
+import { BrowserRouter, Route, Switch, withRouter } from "react-router-dom";
 
-import '../css/Main.css'
+import "../css/Main.css";
 
-const Main = () =>{
+//pratice
+import UseState from "./../components/pratice/UseState";
+import UseCallbackTest from "./../components/pratice/UseCallBack";
+import UseMemo from "./../components/pratice/UseMemo";
+import UseReducer from "./../components/pratice/UseReducer";
+//TalkProject
+import TalkMain from "./../components/talk/TalkMain";
 
-    useEffect(()=>{
-        console.log("useEffect")
-    },[])
-    
-    return (
-        <>
-            <div className="MainWrap">
-                <div>메인페이지 테스트</div>
-                <div>메엔페이지 리소스 </div>
-            </div>
-        </>
-    )
-}
+const Main = ({ location }) => {
+  const locationName = String(location.pathname);
+  return locationName.indexOf("/talk/") === -1 ? (
+    <Switch>
+      <div className="main">
+        <Route exact path="/UseState" component={UseState} />
+        <Route exact path="/UseCallbackTest" component={UseCallbackTest} />
+        <Route exact path="/UseMemo" component={UseMemo} />
+        <Route exact path="/UseReducer" component={UseReducer} />
+      </div>
+    </Switch>
+  ) : (
+    <Switch>
+      <Route exact path="/talk/TalkMain" component={TalkMain} />
+    </Switch>
+  );
+};
 
- export default Main;
+export default withRouter(Main);

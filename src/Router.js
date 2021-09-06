@@ -1,20 +1,13 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-
+import "./css/App.css";
+import "./css/talk.css";
 //common Component
 import Aside from "./components/Aside";
 
 //component impot
 import ScrollToTop from "./components/common/ScrollToTop";
 import Main from "./components/Main";
-
-//pratice
-import UseState from "./components/pratice/UseState";
-import UseCallbackTest from "./components/pratice/UseCallBack";
-import UseMemo from "./components/pratice/UseMemo";
-import UseReducer from "./components/pratice/UseReducer";
-
-import "./css/App.css";
 
 const pathComponet = [
   { path: "/", componentDesc: "Main" },
@@ -24,21 +17,16 @@ const pathComponet = [
   { path: "/UseReducer", componentDesc: "UseReducer" }
 ];
 
-function App() {
+const talkComponet = [{ path: "/talk/TalkMain", componentDesc: "TalkMain" }];
+
+function App(props) {
+  console.log("props : ", props);
   return (
     <div className="App">
       <BrowserRouter>
-        <Aside pathComponet={pathComponet} />
         <ScrollToTop />
-        <div className="main">
-          <Switch>
-            <Route exact path="/" component={Main} />
-            <Route exact path="/UseState" component={UseState} />
-            <Route exact path="/UseCallbackTest" component={UseCallbackTest} />
-            <Route exact path="/UseMemo" component={UseMemo} />
-            <Route exact path="/UseReducer" component={UseReducer} />
-          </Switch>
-        </div>
+        <Aside pathComponet={pathComponet} talkComponet={talkComponet} />
+        <Main />
       </BrowserRouter>
     </div>
   );
