@@ -10,8 +10,8 @@ import ScrollToTop from "./components/common/ScrollToTop";
 import Main from "./components/Main";
 
 const pathComponet = [
-  { path: "/", componentDesc: "Main" },
-  { path: "/UseState", componentDesc: "UseState" },
+  // { path: "/", componentDesc: "Main" },
+  { path: "/", componentDesc: "UseState" },
   { path: "/UseCallbackTest", componentDesc: "UseCallbackTest" },
   { path: "/UseMemo", componentDesc: "UseMemo" },
   { path: "/UseReducer", componentDesc: "UseReducer" }

@@ -14,7 +14,7 @@ const PreUlComp = React.memo(({ path, desc }) => {
 
 const LiComponet = React.memo(({ pathComponet, cateNM }) => {
   return (
-    <>
+    <div>
       <p className="asideUlTitle"> {cateNM}</p>
       <li className="asideLiLink">
         {pathComponet.map((pathDatas) => (
@@ -25,7 +25,7 @@ const LiComponet = React.memo(({ pathComponet, cateNM }) => {
           />
         ))}
       </li>
-    </>
+    </div>
   );
 });
 
@@ -43,16 +43,6 @@ const Aside = ({ pathComponet, talkComponet }) => {
           </div>
         </div>
       </div>
-      {/* <Switch>
-      <div className="main">
-        <Route exact path="/" component={Main} />
-        <Route exact path="/UseState" component={UseState} />
-        <Route exact path="/UseCallbackTest" component={UseCallbackTest} />
-        <Route exact path="/UseMemo" component={UseMemo} />
-        <Route exact path="/UseReducer" component={UseReducer} />
-        <Route exact path="/talk/TalkMain" component={TalkMain} />
-      </div>
-    </Switch> */}
     </>
   );
 };

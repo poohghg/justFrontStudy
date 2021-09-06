@@ -16,7 +16,7 @@ const Main = ({ location }) => {
   return locationName.indexOf("/talk/") === -1 ? (
     <Switch>
       <div className="main">
-        <Route exact path="/UseState" component={UseState} />
+        <Route exact path="/" component={UseState} />
         <Route exact path="/UseCallbackTest" component={UseCallbackTest} />
         <Route exact path="/UseMemo" component={UseMemo} />
         <Route exact path="/UseReducer" component={UseReducer} />
