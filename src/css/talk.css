@@ -1,5 +1,59 @@
 .talkWrap {
   background-color: #fff;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  color: black;
+}
+/* .talkWrap {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  color: black;
+} */
+.talkType {
+  margin-top: 2rem;
+  width: 100%;
+}
+.type-wrap {
+  width: 100%;
+  padding: 0.5rem;
+}
+.tpye-info {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  align-items: center;
+}
+.tpye-title {
+  font-size: 1rem;
+  font-weight: bolder;
+}
+.skininfo {
+  display: flex;
+  margin-top: 1rem;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.skininfo-box {
+  display: flex;
+  width: 50%;
+  justify-content: flex-start;
+  align-items: center;
+}
+.skininfoNm {
+  width: 30%;
+  font-weight: bolder;
+  font-size: 0.8rem;
+  text-align: left;
+}
+.skininfoGrape {
+  display: flex;
+  align-items: center;
+  width: 65%;
+  height: 50px;
+}
+.skininfoGrape .rc-slider {
+  padding: 0;
 }

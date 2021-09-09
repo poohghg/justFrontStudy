@@ -1,12 +1,12 @@
-import TalkTead from "./talkHead/TalkHead";
 import React from "react";
+import TalkHead from "./talkHead/TalkHead";
+import TalkTypeBox from "./talkComp/TalkTypeBox";
 const TalkMain = () => {
-  console.log("??");
-  // alert("?");
   return (
     <>
       <div className="talkWrap">
-        <TalkTead />
+        <TalkHead />
+        <TalkTypeBox />
       </div>
     </>
   );

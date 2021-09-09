@@ -17,10 +17,12 @@ const pathComponet = [
   { path: "/UseReducer", componentDesc: "UseReducer" }
 ];
 
-const talkComponet = [{ path: "/talk/TalkMain", componentDesc: "TalkMain" }];
+const talkComponet = [
+  { path: "/talk/TalkMain", componentDesc: "TalkMain" },
+  { path: "/talk/TalkTodayMask", componentDesc: "TalkTodayMask" }
+];
 
 function App(props) {
-  console.log("props : ", props);
   return (
     <div className="App">
       <BrowserRouter>
