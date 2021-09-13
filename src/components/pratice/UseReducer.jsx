@@ -54,8 +54,6 @@ function reducer(state, action) {
 const TestUseReducer = () => {
   const [state, dispatch] = useReducer(reducer, initstate);
   const users = state;
-  console.log("state", state);
-  console.log("users", users);
   const { title, desc } = state.inputs;
   const onChageInput = useCallback((e) => {
     const { name, value } = e.target;

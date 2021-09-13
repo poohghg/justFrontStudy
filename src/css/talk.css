@@ -18,6 +18,10 @@
   width: 100%;
   padding: 0.5rem;
 }
+.talkInner {
+  width: 100%;
+  padding: 0px 1rem;
+}
 .tpye-info {
   width: 100%;
   margin: 0 auto;
@@ -56,4 +60,29 @@
 }
 .skininfoGrape .rc-slider {
   padding: 0;
+}
+
+.slider-valueNm {
+  text-align: left;
+  margin: 0.7rem 0;
+}
+/* 버튼 가운데 정렬 */
+.valueSlider .rc-slider-handle {
+  transform: translate(-50%, -50%) !important;
+}
+.maskValueInfo {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.maskValueInfo-message {
+  font-size: 0.6rem;
+}
+.maskValueInfo-resetBtn {
+  color: #fff;
+  border: 0.5px solid #fff;
+  border-radius: 18px;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.7rem;
 }
