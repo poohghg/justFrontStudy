@@ -14,7 +14,8 @@ const pathComponet = [
   { path: "/", componentDesc: "UseState" },
   { path: "/UseCallbackTest", componentDesc: "UseCallbackTest" },
   { path: "/UseMemo", componentDesc: "UseMemo" },
-  { path: "/UseReducer", componentDesc: "UseReducer" }
+  { path: "/UseReducer", componentDesc: "UseReducer" },
+  { path: "/TestComp", componentDesc: "TestComp" }
 ];
 
 const talkComponet = [

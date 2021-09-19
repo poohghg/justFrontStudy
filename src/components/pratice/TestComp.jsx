@@ -1,7 +1,11 @@
 import React from "react";
+import {NM} from "../commonJS/common"
 
-export const TestComp = React.memo(()=>{
+const TestComp = React.memo(()=>{
     return(
-        null
-    )
+        <div>
+            {NM}
+        </div>
+    )    
 })
+export default TestComp;
