@@ -7,6 +7,7 @@ import UseCallbackTest from "./../components/pratice/UseCallBack";
 import UseMemo from "./../components/pratice/UseMemo";
 import UseReducer from "./../components/pratice/UseReducer";
 import TestComp from "./../components/pratice/TestComp";
+import SplitCodeTest from "./../components/pratice/SplitCodeTest";
 //TalkProject
 import TalkMain from "./../components/talk/TalkMain";
 import TalkTodayMask from "./../components/talk/TalkTodayMask";
@@ -22,6 +23,7 @@ const Main = ({ location }) => {
         <Route exact path="/UseMemo" component={UseMemo} />
         <Route exact path="/UseReducer" component={UseReducer} />
         <Route exact path="/TestComp" component={TestComp} />
+        <Route exact path="/SplitCodeTest" component={SplitCodeTest} />
       </Switch>
     </div>
   ) : (
