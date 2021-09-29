@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import { BrowserRouter, Route, Switch, withRouter } from "react-router-dom";
 import "../css/Main.css";
 //pratice
-import UseState from "./../components/pratice/UseState";
-import UseCallbackTest from "./../components/pratice/UseCallBack";
-import UseMemo from "./../components/pratice/UseMemo";
-import UseReducer from "./../components/pratice/UseReducer";
-import TestComp from "./../components/pratice/TestComp";
-import SplitCodeTest from "./../components/pratice/SplitCodeTest";
+import UseState from "./pratice/UseState";
+import UseCallbackTest from "./pratice/UseCallBack";
+import UseMemo from "./pratice/UseMemo";
+import UseReducer from "./pratice/UseReducer";
+import TestComp from "./pratice/TestComp";
+import SplitCodeTest from "./pratice/testFIles/SplitCodeTest";
 //TalkProject
 import TalkMain from "./../components/talk/TalkMain";
 import TalkTodayMask from "./../components/talk/TalkTodayMask";
