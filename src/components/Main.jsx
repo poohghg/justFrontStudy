@@ -7,14 +7,15 @@ import UseCallbackTest from "./pratice/UseCallBack";
 import UseMemo from "./pratice/UseMemo";
 import UseReducer from "./pratice/UseReducer";
 import TestComp from "./pratice/TestComp";
+import UseCustomFetch from "./pratice/UseCustomFetch";
+
 import SplitCodeTest from "./pratice/testFIles/SplitCodeTest";
 //TalkProject
-import TalkMain from "./../components/talk/TalkMain";
-import TalkTodayMask from "./../components/talk/TalkTodayMask";
+import TalkMain from "./talk/TalkMain";
+import TalkTodayMask from "./talk/TalkTodayMask";
 
 const Main = ({ location }) => {
   const locationName = String(location.pathname);
-  console.log("locationName", locationName);
   return locationName.indexOf("/talk/") === -1 ? (
     <div className="main">
       <Switch>
@@ -23,6 +24,7 @@ const Main = ({ location }) => {
         <Route exact path="/UseMemo" component={UseMemo} />
         <Route exact path="/UseReducer" component={UseReducer} />
         <Route exact path="/TestComp" component={TestComp} />
+        <Route exact path="/UseCustomFetch" component={UseCustomFetch} />
         <Route exact path="/SplitCodeTest" component={SplitCodeTest} />
       </Switch>
     </div>
