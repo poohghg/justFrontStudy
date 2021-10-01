@@ -13,7 +13,9 @@ const UseCustomFetch = () => {
   const [state, refetch] = fetchDatas(getUsers, []);
   const { loading, data: users, error } = state;
 
-  console.log(users);
+  console.log("users", users);
+  if (loading) return <div> null </div>;
+  if (error) return <div> error!! </div>;
   return <>test</>;
 };
 

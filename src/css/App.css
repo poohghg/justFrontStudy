@@ -4,8 +4,16 @@
   box-sizing: border-box;
 }
 a {
-  margin-bottom: 3px;
+  all: unset;
   text-decoration: none;
+  outline: none;
+}
+a:visited,
+a:link,
+a:hover,
+a:active {
+  text-decoration: none;
+  cursor: pointer;
 }
 ul {
   list-style: none;
@@ -112,21 +120,24 @@ body {
 .asideUlTitle {
   font-size: 1.2rem;
   font-weight: bolder;
-  /* text-align: center; */
-  margin-left: 10px;
-  padding: 2.5px 0px;
+  padding: 0.5rem 0.3rem;
   border-bottom: 1px solid rgba(70, 77, 82, 0.082);
-}
-.asideLiLink {
-  margin-left: 15px;
-}
-.asideLink {
-  font-size: 0.8rem;
-  color: #282c34;
 }
 .asideIlContetn {
   font-size: 1.1rem;
   font-weight: 400;
-  padding: 2.5px 0px;
-  margin-bottom: 5px;
+}
+.asideIlContetn:hover {
+  color: #007bff;
+  background-color: #f0f0f0;
+}
+.asideLink {
+  display: block;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+.asideActive {
+  color: #007bff;
+  background-color: #f0f0f0;
 }
