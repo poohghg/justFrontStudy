@@ -27,16 +27,15 @@ function reducer(state, action) {
 
 // action이 일어날때 state값들은 변경됨
 const initState = {
-  loading: false,
+  loading: true,
   data: null,
   error: null
 };
 
 function fetchDatas(callback, dpes = []) {
   const [state, dispatch] = useReducer(reducer, initState);
-
   const fetch = async () => {
-    dispatch({ type: "LOADING" });
+    // dispatch({ type: "LOADING" });
     try {
       const data = await callback();
       dispatch({ type: "SUCCESS", data: data });
