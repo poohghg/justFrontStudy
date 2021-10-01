@@ -67,12 +67,10 @@ body {
 .main {
   width: 85vw;
   max-width: 980px;
-  background-color: #282c34;
   position: relative;
   display: block;
   padding-top: 8vh;
   text-align: center;
-  color: #ffffff;
 }
 .mainWrap {
   padding: 15px 25px;

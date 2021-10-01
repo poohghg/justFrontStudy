@@ -1,0 +1,7 @@
+.usersWrap {
+  border: 2px solid #333;
+  border-radius: 16px;
+  min-height: 100vh;
+  padding: 0.5rem;
+  color: #6b6a6a;
+}
