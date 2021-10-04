@@ -8,6 +8,7 @@ async function getUsers() {
   const response = await axios.get(
     "https://api.unsplash.com/photos?page=1&per_page=30&client_id=m__Zo30STAoUtS6JfvLC3Psc4_ZAR4eV85gjEDh6jIY"
   );
+  console.log("res", response);
   return response.data;
 }
 
