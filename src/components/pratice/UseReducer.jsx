@@ -55,6 +55,9 @@ const TestUseReducer = () => {
   const [state, dispatch] = useReducer(reducer, initstate);
   const users = state;
   const { title, desc } = state.inputs;
+
+  console.log("cur!!!!", state.inputs);
+
   const onChageInput = useCallback((e) => {
     const { name, value } = e.target;
     dispatch({
@@ -63,6 +66,15 @@ const TestUseReducer = () => {
       value
     });
   }, []);
+
+  const handleKeyPress = useCallback(
+    (e) => {
+      if (e.key === "Enter") {
+        console.log("state.input", state.inputs);
+      }
+    },
+    [state.inputs]
+  );
 
   return (
     <>
@@ -82,6 +94,7 @@ const TestUseReducer = () => {
           value={desc}
           placeholder={"내용을 입력해주세요"}
           onChange={onChageInput}
+          onKeyPress={handleKeyPress}
         />
       </div>
       <StaticBottom />

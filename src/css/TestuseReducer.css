@@ -44,7 +44,7 @@
   align-items: center;
   height: 10vh;
   width: 100%;
-  border-top: 1px solid #ffffff;
+  border-top: 1px solid #fff;
 }
 .TalkBottomWrap span {
   flex-basis: 30%;

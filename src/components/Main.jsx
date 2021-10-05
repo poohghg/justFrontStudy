@@ -8,6 +8,7 @@ import UseMemo from "./pratice/UseMemo";
 import UseReducer from "./pratice/UseReducer";
 import TestComp from "./pratice/TestComp";
 import UseCustomFetch from "./pratice/UseCustomFetch";
+import UseRef from "./pratice/UseRef";
 
 import SplitCodeTest from "./pratice/testFIles/SplitCodeTest";
 //TalkProject
@@ -26,6 +27,7 @@ const Main = ({ location }) => {
         <Route exact path="/TestComp" component={TestComp} />
         <Route exact path="/UseCustomFetch" component={UseCustomFetch} />
         <Route exact path="/SplitCodeTest" component={SplitCodeTest} />
+        <Route exact path="/UseRef" component={UseRef} />
       </Switch>
     </div>
   ) : (

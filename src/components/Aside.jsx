@@ -9,7 +9,8 @@ const pathComponet = [
   { path: "/UseReducer", componentDesc: "UseReducer" },
   { path: "/TestComp", componentDesc: "TestComp" },
   { path: "/SplitCodeTest", componentDesc: "SplitCodeTest" },
-  { path: "/UseCustomFetch", componentDesc: "UseCustomFetch" }
+  { path: "/UseCustomFetch", componentDesc: "UseCustomFetch" },
+  { path: "/UseRef", componentDesc: "UseRef" }
 ];
 
 const talkComponet = [

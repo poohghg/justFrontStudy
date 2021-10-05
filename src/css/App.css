@@ -32,8 +32,8 @@ input[type="text"] {
   padding-bottom: 3px;
   font-size: 1.2rem;
   background-color: inherit;
-  color: #ffffff;
-  border-bottom: 0.5px solid #ffffff;
+  color: #666;
+  border-bottom: 0.5px solid #666;
 }
 
 button {

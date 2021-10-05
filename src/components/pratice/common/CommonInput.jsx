@@ -1,6 +1,13 @@
 import React from "react";
 const OnInput = React.memo(
-  ({ name, value, onChange, placeholder = null, createType = null }) => {
+  ({
+    name,
+    value,
+    onChange,
+    onKeyPress = null,
+    placeholder = null,
+    createType = null
+  }) => {
     return (
       <div className="talkPostSection">
         <input
@@ -8,6 +15,7 @@ const OnInput = React.memo(
           name={name}
           value={value}
           onChange={onChange}
+          onKeyPress={onKeyPress}
           type={createType}
           placeholder={placeholder}
         />
