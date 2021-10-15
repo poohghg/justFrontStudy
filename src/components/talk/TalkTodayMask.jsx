@@ -16,12 +16,13 @@ const SliderBar = React.memo(({ value, setValue, name }) => {
   );
 });
 
+const testDatas = [
+  { id: 1, text: 33 },
+  { id: 1, text: 44 },
+  { id: 1, text: 55 }
+];
+
 const InnerSwiper = React.memo(() => {
-  const testDatas = [
-    { id: 1, text: 33 },
-    { id: 1, text: 44 },
-    { id: 1, text: 55 }
-  ];
   return (
     <>
       {/* {testDatas.map((datas) => (
@@ -95,7 +96,7 @@ const TalkTodayMask = React.memo(() => {
       </div>
       {/* <InnerSwiper /> */}
       <SlideWrap>
-        <TalkSwiper innerComp={<InnerSwiper />} />
+        <TalkSwiper datas={testDatas} />
       </SlideWrap>
     </div>
   );

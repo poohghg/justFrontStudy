@@ -16,16 +16,12 @@ const defaultParams = {
   spaceBetween: 30
 };
 
-const TalkSwiper = React.memo(({ innerComp, params = defaultParams }) => {
-  console.log("innerComp", innerComp);
+const TalkSwiper = React.memo(({ datas, params = defaultParams }) => {
   return (
     <Swiper {...params}>
-      {innerComp}
-      <div>Slide #1</div>
-      <div>Slide #2</div>
-      <div>Slide #3</div>
-      <div>Slide #4</div>
-      <div>Slide #5</div>
+      {datas.map((data) => (
+        <div key={data.id}>{data.text}</div>
+      ))}
     </Swiper>
   );
 });
