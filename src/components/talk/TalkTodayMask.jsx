@@ -1,5 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import ValueSlider from "./common/valueSlider";
+import { SlideWrap, TestSwiperDiv } from "../common/styleCmop";
+import TalkSwiper from "./common/TalkSwiper";
 
 const SlidervalueNm = React.memo(({ name }) => {
   return <div className="slider-valueNm">{name}</div>;
@@ -10,6 +12,23 @@ const SliderBar = React.memo(({ value, setValue, name }) => {
     <>
       <SlidervalueNm name={name} />
       <ValueSlider value={value} setValue={setValue} name={name} />
+    </>
+  );
+});
+
+const InnerSwiper = React.memo(() => {
+  const testDatas = [
+    { id: 1, text: 33 },
+    { id: 1, text: 44 },
+    { id: 1, text: 55 }
+  ];
+  return (
+    <>
+      {/* {testDatas.map((datas) => (
+        <TestSwiperDiv key={datas.id}>{datas.text}</TestSwiperDiv>
+      ))} */}
+      <div>1</div>
+      <div>1</div>
     </>
   );
 });
@@ -74,6 +93,10 @@ const TalkTodayMask = React.memo(() => {
           </button>
         </div>
       </div>
+      {/* <InnerSwiper /> */}
+      <SlideWrap>
+        <TalkSwiper innerComp={<InnerSwiper />} />
+      </SlideWrap>
     </div>
   );
 });
