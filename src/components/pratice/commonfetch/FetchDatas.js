@@ -32,7 +32,7 @@ const initState = {
   error: null
 };
 
-function fetchDatas(callback, dpes = []) {
+function useFetchDatas(callback, dpes = []) {
   const [state, dispatch] = useReducer(reducer, initState);
   const fetch = async () => {
     // dispatch({ type: "LOADING" });
@@ -51,4 +51,4 @@ function fetchDatas(callback, dpes = []) {
   return [state, fetch];
 }
 
-export default fetchDatas;
+export default useFetchDatas;

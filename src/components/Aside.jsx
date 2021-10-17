@@ -48,7 +48,7 @@ const LiComponet = React.memo(
   }
 );
 
-const Aside = React.memo(() => {
+const Aside = React.memo(({location}) => {
   const curPath = location.pathname.split("/")[1];
   const [active, setActive] = useState(curPath === "" ? "UseState" : curPath);
   const changeActive = (nm) => {
