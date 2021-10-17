@@ -54,7 +54,6 @@ const Aside = React.memo(({location}) => {
   const changeActive = (nm) => {
     setActive((prev) => nm);
   };
-
   return (
     <>
       <div className="aside">
