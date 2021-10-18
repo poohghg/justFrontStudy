@@ -22,21 +22,18 @@ const testDatas = [
   { id: 1, text: 55 }
 ];
 
-const InnerSwiper = React.memo(() => {
-  return (
-    <>
-      {/* {testDatas.map((datas) => (
-        <TestSwiperDiv key={datas.id}>{datas.text}</TestSwiperDiv>
-      ))} */}
-      <div>1</div>
-      <div>1</div>
-    </>
-  );
-});
-
 const styleComp = {
   backgroundColor: "#10447f",
   color: "#fff"
+};
+
+const testStyled = {
+  border: "1px solid red",
+  height: "200px"
+};
+
+const optionParams = {
+  spaceBetween: 500
 };
 
 const TalkTodayMask = React.memo(() => {
@@ -94,9 +91,12 @@ const TalkTodayMask = React.memo(() => {
           </button>
         </div>
       </div>
-      {/* <InnerSwiper /> */}
       <SlideWrap>
-        <TalkSwiper datas={testDatas} />
+        <TalkSwiper
+          datas={testDatas}
+          style={testStyled}
+          optionParams={optionParams}
+        />
       </SlideWrap>
     </div>
   );
