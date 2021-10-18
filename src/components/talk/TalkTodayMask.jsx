@@ -33,7 +33,16 @@ const testStyled = {
 };
 
 const optionParams = {
-  spaceBetween: 500
+  spaceBetween: 0,
+  on: {
+    slideChange: (e) => {
+      slideChangeValue(e);
+    }
+  }
+};
+
+const slideChangeValue = (e) => {
+  console.log("e", e);
 };
 
 const TalkTodayMask = React.memo(() => {
@@ -44,6 +53,7 @@ const TalkTodayMask = React.memo(() => {
     e: 30,
     r: 40
   });
+  const swiperRef = useRef(null);
   // 컴포넌트내 변수를 사용하기위해 useRef를 사용 이변수는 state가 update할때 반응하지 않음.
   const resetMaskValue = useRef({});
 
@@ -66,7 +76,6 @@ const TalkTodayMask = React.memo(() => {
   const totalValue = Object.values(maskValue).reduce(
     (prev, curn) => prev + curn
   );
-
   return (
     <div className="talkWrap" style={styleComp}>
       <div className="talkInner">
@@ -93,6 +102,7 @@ const TalkTodayMask = React.memo(() => {
       </div>
       <SlideWrap>
         <TalkSwiper
+          ref={swiperRef}
           datas={testDatas}
           style={testStyled}
           optionParams={optionParams}

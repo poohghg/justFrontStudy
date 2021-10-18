@@ -14,7 +14,7 @@ const defaultParams = {
   //   nextEl: ".swiper-button-next",
   //   prevEl: ".swiper-button-prev"
   // },
-  spaceBetween: 30
+  spaceBetween: 0
 };
 
 const defaultStyle = {
@@ -25,19 +25,21 @@ const defaultStyle = {
   alignItems: "center"
 };
 
-const TalkSwiper = React.memo(({ datas, optionParams = {}, style = {} }) => {
-  const options = { ...defaultParams, ...optionParams };
-  const divStyle = { ...defaultStyle, ...style };
-  console.log("options", options);
-  console.log("divStyle", divStyle);
-  return (
-    <Swiper {...defaultParams}>
-      {datas.map((data) => (
-        <div key={data.id} style={divStyle}>
-          {data.text}
-        </div>
-      ))}
-    </Swiper>
-  );
-});
+const TalkSwiper = React.memo(
+  ({ datas, ref = null, optionParams = {}, style = {} }) => {
+    const options = { ...defaultParams, ...optionParams };
+    const divStyle = { ...defaultStyle, ...style };
+    console.log("options", options);
+    console.log("divStyle", divStyle);
+    return (
+      <Swiper {...defaultParams} ref={ref}>
+        {datas.map((data) => (
+          <div key={data.id} style={divStyle}>
+            {data.text}
+          </div>
+        ))}
+      </Swiper>
+    );
+  }
+);
 export default TalkSwiper;
