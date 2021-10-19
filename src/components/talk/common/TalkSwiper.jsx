@@ -23,7 +23,13 @@ const defaultStyle = {
 };
 
 const TalkSwiper = React.memo(
-  ({ datas, onSlideChange, optionParams = {}, style = {} }) => {
+  ({
+    datas,
+    onSlideChange,
+    optionParams = {},
+    style = {},
+    subSwiperDiv = null
+  }) => {
     const options = { ...defaultParams, ...optionParams };
     const divStyle = { ...defaultStyle, ...style };
     return (
@@ -32,10 +38,13 @@ const TalkSwiper = React.memo(
         onSlideChange={onSlideChange}
         style={{ height: "250px" }}
       >
-        {datas.map((data) => (
-          <SwiperSlide key={data.id} style={divStyle}>
-            {data.text}
-          </SwiperSlide>
+        {datas.map((data, index) => (
+          <>
+            <SwiperSlide key={data.id} style={divStyle}>
+              <div>{data.text}</div>
+              {subSwiperDiv}
+            </SwiperSlide>
+          </>
         ))}
       </Swiper>
     );

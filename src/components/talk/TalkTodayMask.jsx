@@ -16,20 +16,26 @@ const SliderBar = React.memo(({ value, setValue, name }) => {
   );
 });
 
+const styleComp = {
+  backgroundColor: "#10447f",
+  color: "#fff"
+};
+
 const testDatas = [
   { id: 1, text: 33 },
   { id: 1, text: 44 },
   { id: 1, text: 55 }
 ];
 
-const styleComp = {
-  backgroundColor: "#10447f",
-  color: "#fff"
+const swiperStyled = {
+  border: "1px solid #fff",
+  height: "200px",
+  flexDirection: "column"
+  // margin: "auto"
 };
 
-const testStyled = {
-  border: "1px solid #fff",
-  height: "200px"
+const SubSwiperDiv = ({ value }) => {
+  return <div>{value}dasdsa</div>;
 };
 
 const optionParams = {
@@ -45,7 +51,6 @@ const TalkTodayMask = React.memo(() => {
     e: 30,
     r: 40
   });
-  const swiperRef = useRef(null);
   // 컴포넌트내 변수를 사용하기위해 useRef를 사용 이변수는 state가 update할때 반응하지 않음.
   const resetMaskValue = useRef({});
 
@@ -100,9 +105,10 @@ const TalkTodayMask = React.memo(() => {
       <SlideWrap>
         <TalkSwiper
           datas={testDatas}
-          style={testStyled}
+          style={swiperStyled}
           optionParams={optionParams}
           onSlideChange={onSlideChange}
+          subSwiperDiv={<SubSwiperDiv />}
         />
       </SlideWrap>
     </div>
