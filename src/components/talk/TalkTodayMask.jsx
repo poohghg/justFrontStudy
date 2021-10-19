@@ -69,9 +69,10 @@ const TalkTodayMask = React.memo(() => {
     (prev, curn) => prev + curn
   );
 
-  const renderPagination = (value) => {
-    console.log("value", value);
+  const onSlideChange = (e) => {
+    console.log("test", e.activeIndex);
   };
+
   return (
     <div className="talkWrap" style={styleComp}>
       <div className="talkInner">
@@ -101,7 +102,7 @@ const TalkTodayMask = React.memo(() => {
           datas={testDatas}
           style={testStyled}
           optionParams={optionParams}
-          renderPagination={renderPagination}
+          onSlideChange={onSlideChange}
         />
       </SlideWrap>
     </div>

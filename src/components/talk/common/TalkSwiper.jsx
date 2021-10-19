@@ -1,20 +1,17 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import Swiper from "react-id-swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Navigation, Pagination } from "swiper";
 // swiper 5버전에서 css파일 사용가능
-import "swiper/css/swiper.css";
+import "swiper/swiper.scss";
+import "swiper/components/navigation/navigation.scss";
+import "swiper/components/pagination/pagination.scss";
 import "../../../css/talk/talk.css";
 
+SwiperCore.use([Navigation, Pagination]);
 const defaultParams = {
-  pagination: {
-    el: ".swiper-pagination",
-    type: "bullets",
-    clickable: true
-  },
-  // navigation: {
-  //   nextEl: ".swiper-button-next",
-  //   prevEl: ".swiper-button-prev"
-  // },
+  pagination: { clickable: true },
   spaceBetween: 0
+  // onSlideChange: (e) => console.log("slide change", e.activeIndex) // 함수를 넘기세요
 };
 
 const defaultStyle = {
@@ -26,22 +23,19 @@ const defaultStyle = {
 };
 
 const TalkSwiper = React.memo(
-  ({ datas, renderPagination, optionParams = {}, style = {} }) => {
+  ({ datas, onSlideChange, optionParams = {}, style = {} }) => {
     const options = { ...defaultParams, ...optionParams };
     const divStyle = { ...defaultStyle, ...style };
-    console.log("options", options);
-    console.log("divStyle", divStyle);
-    console.log("renderPagination", renderPagination);
     return (
-      <Swiper {...options}>
+      <Swiper
+        {...options}
+        onSlideChange={onSlideChange}
+        style={{ height: "250px" }}
+      >
         {datas.map((data) => (
-          <div
-            key={data.id}
-            renderPagination={renderPagination}
-            style={divStyle}
-          >
+          <SwiperSlide key={data.id} style={divStyle}>
             {data.text}
-          </div>
+          </SwiperSlide>
         ))}
       </Swiper>
     );
