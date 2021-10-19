@@ -28,21 +28,13 @@ const styleComp = {
 };
 
 const testStyled = {
-  border: "1px solid red",
+  border: "1px solid #fff",
   height: "200px"
 };
 
 const optionParams = {
-  spaceBetween: 0,
-  on: {
-    slideChange: (e) => {
-      slideChangeValue(e);
-    }
-  }
-};
-
-const slideChangeValue = (e) => {
-  console.log("e", e);
+  // containerClass: "swiper-container hegiht240",
+  spaceBetween: 25
 };
 
 const TalkTodayMask = React.memo(() => {
@@ -76,6 +68,10 @@ const TalkTodayMask = React.memo(() => {
   const totalValue = Object.values(maskValue).reduce(
     (prev, curn) => prev + curn
   );
+
+  const renderPagination = (value) => {
+    console.log("value", value);
+  };
   return (
     <div className="talkWrap" style={styleComp}>
       <div className="talkInner">
@@ -102,10 +98,10 @@ const TalkTodayMask = React.memo(() => {
       </div>
       <SlideWrap>
         <TalkSwiper
-          ref={swiperRef}
           datas={testDatas}
           style={testStyled}
           optionParams={optionParams}
+          renderPagination={renderPagination}
         />
       </SlideWrap>
     </div>

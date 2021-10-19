@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 import Swiper from "react-id-swiper";
 // swiper 5버전에서 css파일 사용가능
 import "swiper/css/swiper.css";
-// import "../../../css/talk/talk.css";
+import "../../../css/talk/talk.css";
 
 const defaultParams = {
   pagination: {
@@ -26,15 +26,20 @@ const defaultStyle = {
 };
 
 const TalkSwiper = React.memo(
-  ({ datas, ref = null, optionParams = {}, style = {} }) => {
+  ({ datas, renderPagination, optionParams = {}, style = {} }) => {
     const options = { ...defaultParams, ...optionParams };
     const divStyle = { ...defaultStyle, ...style };
     console.log("options", options);
     console.log("divStyle", divStyle);
+    console.log("renderPagination", renderPagination);
     return (
-      <Swiper {...defaultParams} ref={ref}>
+      <Swiper {...options}>
         {datas.map((data) => (
-          <div key={data.id} style={divStyle}>
+          <div
+            key={data.id}
+            renderPagination={renderPagination}
+            style={divStyle}
+          >
             {data.text}
           </div>
         ))}
