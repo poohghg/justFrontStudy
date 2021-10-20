@@ -1,4 +1,6 @@
-import React, { useRef } from "react";
+import React, { useImperativeHandle, useRef } from "react";
+// ref 사용방법 관련 내용
+// https://stackoverflow.com/questions/66568080/useref-to-control-a-component-that-is-inside-child-component
 
 const style = {
   border: "1px solid black",
@@ -14,39 +16,61 @@ const innerStyle = {
   background: "red"
 };
 
-const ScrollBox = () => {
-  const thisBox = useRef(null);
+const ScrollBox = React.forwardRef((props, ref) => {
+  const thisBox = useRef();
+  // console.log(thisBox.current.scrollHeight, thisBox.current.clientHeight);
+  // 부모 컴포넌트에서 하위컴포넌트의 ref값 제어
 
-  const scrollToTop = () => {
-    const { scrollHeight, clientHeight } = thisBox.current;
-    thisBox.current.scrollTop = scrollHeight - clientHeight;
-  };
+  useImperativeHandle(ref, () => ({
+    reallyFocus: () => {
+      thisBox.current.focus();
+      console.log("Being focused!");
+    },
+    getValue: () => {
+      console.log("thisBox.current.value", thisBox.current);
+      return thisBox.current.value;
+    },
+    scrollToBottom: () => {
+      console.log("scrollToBottom", thisBox.current.scrollHeight);
+      console.log("scrollToBottom", thisBox.clientHeigh);
 
-  const scrollToBottom = () => {
-    const { scrollHeight, clientHeight } = thisBox.current;
-    console.log("thisBox.current", thisBox.current);
-    thisBox.current.scrollTop = 0;
-  };
-
+      const { scrollHeight, clientHeigh } = thisBox.current;
+      console.log("scrollHeight - clientHeigh", scrollHeight - clientHeigh);
+      thisBox.current.scrollTop = scrollHeight - clientHeigh;
+    }
+  }));
   return (
     <>
       <div style={style} ref={thisBox}>
         <div style={innerStyle}></div>
       </div>
-      <button style={{ color: "red" }} onClick={scrollToTop}>
-        바텀으로
-      </button>
-      <button style={{ color: "red" }} onClick={scrollToBottom}>
-        탑으로
-      </button>
     </>
   );
-};
+});
 
 const testCompTop = () => {
+  const testRef = useRef();
   return (
     <>
-      <ScrollBox />
+      <ScrollBox ref={testRef} />
+      <button
+        style={{ color: "red" }}
+        onClick={() => testRef.current.getValue()}
+      >
+        getValue
+      </button>
+      <button
+        style={{ color: "red" }}
+        onClick={() => testRef.current.scrollToBottom()}
+      >
+        바텀으로
+      </button>
+      <button
+        style={{ color: "red" }}
+        // onClick={}
+      >
+        탑으로
+      </button>
     </>
   );
 };
