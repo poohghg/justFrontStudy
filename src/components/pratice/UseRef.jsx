@@ -1,4 +1,6 @@
 import React, { useImperativeHandle, useRef } from "react";
+// import sty
+
 // ref 사용방법 관련 내용
 // https://stackoverflow.com/questions/66568080/useref-to-control-a-component-that-is-inside-child-component
 
@@ -24,19 +26,16 @@ const ScrollBox = React.forwardRef((props, ref) => {
   useImperativeHandle(ref, () => ({
     reallyFocus: () => {
       thisBox.current.focus();
-      console.log("Being focused!");
     },
     getValue: () => {
-      console.log("thisBox.current.value", thisBox.current);
       return thisBox.current.value;
     },
     scrollToBottom: () => {
-      console.log("scrollToBottom", thisBox.current.scrollHeight);
-      console.log("scrollToBottom", thisBox.clientHeigh);
-
-      const { scrollHeight, clientHeigh } = thisBox.current;
-      console.log("scrollHeight - clientHeigh", scrollHeight - clientHeigh);
-      thisBox.current.scrollTop = scrollHeight - clientHeigh;
+      const { scrollHeight, clientHeight } = thisBox.current;
+      thisBox.current.scrollTop = scrollHeight - clientHeight;
+    },
+    scrollToTop: () => {
+      thisBox.current.scrollTop = 0;
     }
   }));
   return (
@@ -67,7 +66,7 @@ const testCompTop = () => {
       </button>
       <button
         style={{ color: "red" }}
-        // onClick={}
+        onClick={() => testRef.current.scrollToTop()}
       >
         탑으로
       </button>
