@@ -31,7 +31,6 @@ const swiperStyled = {
   border: "1px solid #fff",
   height: "200px",
   flexDirection: "column"
-  // margin: "auto"
 };
 
 const SubSwiperDiv = ({ value }) => {

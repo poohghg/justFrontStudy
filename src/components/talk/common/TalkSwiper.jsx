@@ -15,23 +15,27 @@ const defaultParams = {
 };
 
 const defaultStyle = {
-  border: "1px solid black",
-  borderRadius: "16px",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center"
+  // border: "1px solid black",
+  // borderRadius: "16px",
+  // display: "flex",
+  // justifyContent: "center",
+  // alignItems: "center",
+  // height: "50%",
+  // width: "75%"
 };
 
 const TalkSwiper = React.memo(
   ({
-    datas,
-    onSlideChange,
+    datas = [],
+    onSlideChange = null,
     optionParams = {},
     style = {},
     subSwiperDiv = null
   }) => {
     const options = { ...defaultParams, ...optionParams };
     const divStyle = { ...defaultStyle, ...style };
+    console.log("divStyle", divStyle);
+
     return (
       <Swiper
         {...options}
@@ -40,9 +44,8 @@ const TalkSwiper = React.memo(
       >
         {datas.map((data, index) => (
           <>
-            <SwiperSlide key={data.id} style={divStyle}>
-              <div>{data.text}</div>
-              {subSwiperDiv}
+            <SwiperSlide key={index} style={divStyle}>
+              <div></div>
             </SwiperSlide>
           </>
         ))}
