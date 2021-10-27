@@ -15,7 +15,8 @@ const pathComponet = [
 
 const talkComponet = [
   { path: "/talk/TalkMain", componentDesc: "TalkMain" },
-  { path: "/talk/TalkTodayMask", componentDesc: "TalkTodayMask" }
+  { path: "/talk/TalkTodayMask", componentDesc: "TalkTodayMask" },
+  { path: "/talk/TalkBoard", componentDesc: "TalkBoard" }
 ];
 
 const LiComponet = React.memo(
