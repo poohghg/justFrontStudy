@@ -10,18 +10,15 @@ import "../../../css/talk/talk.css";
 SwiperCore.use([Navigation, Pagination]);
 const defaultParams = {
   pagination: { clickable: true },
-  spaceBetween: 0
+  spaceBetween: 0,
+  centeredSlides: false
   // onSlideChange: (e) => console.log("slide change", e.activeIndex) // 함수를 넘기세요
 };
 
 const defaultStyle = {
-  // border: "1px solid black",
-  // borderRadius: "16px",
-  // display: "flex",
-  // justifyContent: "center",
-  // alignItems: "center",
-  // height: "50%",
-  // width: "75%"
+  border: "1px solid black",
+  borderRadius: "16px",
+  height: "50%"
 };
 
 const TalkSwiper = React.memo(

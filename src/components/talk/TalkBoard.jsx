@@ -23,7 +23,13 @@ const swiperStyled = {
 };
 
 const optionParams = {
-  spaceBetween: 30
+  pagination: "",
+  spaceBetween: 30,
+  touchRatio: 0,
+  slidesPerView: 1.2
+
+  // resistance: false
+  // slidesOffsetAfter: 0
 };
 
 const data = [{ text: 1 }, { text: 2 }, { text: 3 }, { text: 4 }, { text: 5 }];
