@@ -10,7 +10,7 @@ const TalkBoardWrap = styled.div`
   position: relative;
   width: 100%;
   background-color: #f0f0f0;
-  height: 200vh;
+  height: 100vh;
   overflow: auto;
   padding: 2rem;
 `;
@@ -45,9 +45,13 @@ const TalkBoard = () => {
   });
 
   const scrollToTop = () => {
+    window.scrollTo({
+      behavior: "smooth",
+      top: mainRef.current.offsetTop
+    });
     console.log(mainRef.current.scrollHeight);
     console.log(mainRef.current.offsetTop);
-    mainRef.current.scrollTop = 0;
+    console.log(mainRef.current.scrollTop);
   };
 
   return (
