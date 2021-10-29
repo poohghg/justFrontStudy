@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import {
   BestTalkComp,
   TalkSearchComp,
+  TalkComp,
   BottomBtn
 } from "./talkComp/TalkCommonComp";
 
@@ -40,14 +41,14 @@ const TalkBoard = () => {
   }, []);
 
   const onChange = useCallback((e) => {
-    const { name, value } = e.target;
+    const { value } = e.target;
     setsearchValue(value);
   });
 
   const scrollToTop = () => {
     window.scrollTo({
       behavior: "smooth",
-      top: mainRef.current.offsetTop
+      top: 0
     });
     console.log(mainRef.current.scrollHeight);
     console.log(mainRef.current.offsetTop);
@@ -64,6 +65,7 @@ const TalkBoard = () => {
         searchValue={searchValue}
         onChange={onChange}
       />
+      <TalkComp />
       <BottomBtn scrollToTop={scrollToTop} />
     </TalkBoardWrap>
   );
