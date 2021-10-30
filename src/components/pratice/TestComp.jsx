@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { NM } from "../commonJS/common";
+import { NM } from "./common/commonJS/common";
 
 const PrTest = ({ name, children }) => {
   // props children값을 통해 태그사이의 값을 표현 할 수 있다.

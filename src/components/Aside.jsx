@@ -15,7 +15,8 @@ const pathComponet = [
 
 const talkComponet = [
   { path: "/talk/TalkMain", componentDesc: "TalkMain" },
-  { path: "/talk/TalkTodayMask", componentDesc: "TalkTodayMask" }
+  { path: "/talk/TalkTodayMask", componentDesc: "TalkTodayMask" },
+  { path: "/talk/TalkBoard", componentDesc: "TalkBoard" }
 ];
 
 const LiComponet = React.memo(
@@ -48,7 +49,7 @@ const LiComponet = React.memo(
   }
 );
 
-const Aside = React.memo(({location}) => {
+const Aside = React.memo(() => {
   const curPath = location.pathname.split("/")[1];
   const [active, setActive] = useState(curPath === "" ? "UseState" : curPath);
   const changeActive = (nm) => {

@@ -16,27 +16,30 @@ const SliderBar = React.memo(({ value, setValue, name }) => {
   );
 });
 
+const styleComp = {
+  backgroundColor: "#10447f",
+  color: "#fff"
+};
+
 const testDatas = [
   { id: 1, text: 33 },
   { id: 1, text: 44 },
   { id: 1, text: 55 }
 ];
 
-const InnerSwiper = React.memo(() => {
-  return (
-    <>
-      {/* {testDatas.map((datas) => (
-        <TestSwiperDiv key={datas.id}>{datas.text}</TestSwiperDiv>
-      ))} */}
-      <div>1</div>
-      <div>1</div>
-    </>
-  );
-});
+const swiperStyled = {
+  border: "1px solid #fff",
+  height: "200px",
+  flexDirection: "column"
+};
 
-const styleComp = {
-  backgroundColor: "#10447f",
-  color: "#fff"
+const SubSwiperDiv = ({ value }) => {
+  return <div>{value}dasdsa</div>;
+};
+
+const optionParams = {
+  // containerClass: "swiper-container hegiht240",
+  spaceBetween: 25
 };
 
 const TalkTodayMask = React.memo(() => {
@@ -70,6 +73,10 @@ const TalkTodayMask = React.memo(() => {
     (prev, curn) => prev + curn
   );
 
+  const onSlideChange = (e) => {
+    console.log("test", e.activeIndex);
+  };
+
   return (
     <div className="talkWrap" style={styleComp}>
       <div className="talkInner">
@@ -94,9 +101,14 @@ const TalkTodayMask = React.memo(() => {
           </button>
         </div>
       </div>
-      {/* <InnerSwiper /> */}
       <SlideWrap>
-        <TalkSwiper datas={testDatas} />
+        <TalkSwiper
+          datas={testDatas}
+          style={swiperStyled}
+          optionParams={optionParams}
+          onSlideChange={onSlideChange}
+          subSwiperDiv={<SubSwiperDiv />}
+        />
       </SlideWrap>
     </div>
   );

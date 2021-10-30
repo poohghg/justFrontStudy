@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { BrowserRouter, Route, Switch, withRouter } from "react-router-dom";
 import "../css/Main.css";
+
 //pratice
 import UseState from "./pratice/UseState";
 import UseCallbackTest from "./pratice/UseCallBack";
@@ -14,6 +15,7 @@ import SplitCodeTest from "./pratice/testFIles/SplitCodeTest";
 //TalkProject
 import TalkMain from "./talk/TalkMain";
 import TalkTodayMask from "./talk/TalkTodayMask";
+import TalkBoard from "./talk/TalkBoard";
 
 const Main = ({ location }) => {
   const locationName = String(location.pathname);
@@ -35,6 +37,7 @@ const Main = ({ location }) => {
       <Switch>
         <Route exact path="/talk/TalkMain" component={TalkMain} />
         <Route exact path="/talk/TalkTodayMask" component={TalkTodayMask} />
+        <Route exact path="/talk/TalkBoard" component={TalkBoard} />
       </Switch>
     </div>
   );
