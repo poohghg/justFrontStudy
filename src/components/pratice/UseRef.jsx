@@ -23,8 +23,8 @@ const ScrollBox = () => {
   };
 
   const scrollToBottom = () => {
-    const { scrollHeight, clientHeight } = thisBox.current;
-    console.log("thisBox.current", thisBox.current);
+    // const { scrollHeight, clientHeight } = thisBox.current;
+    // console.log("thisBox.current", thisBox.current);
     thisBox.current.scrollTop = 0;
   };
 
