@@ -20,6 +20,7 @@ const FlexBox = styled.div`
 const FlexBetweenBox = styled.div`
   ${flexBetween};
   flex-wrap: wrap;
+  width: ${(props) => (props.width ? props.width : `100%`)};
   margin: ${(props) => (props.margin ? `2rem 0` : `1rem 0`)};
 `;
 const TalkTitleDiv = styled.div`
@@ -41,12 +42,11 @@ const LongScrollDiv = styled.div`
   }
 `;
 
-const BestTalkDiv = styled(FlexBox)`
-  height: 15rem;
+const TalkDiv = styled(FlexBox)`
+  /* height: 15rem; */
   border: 1px solid #fff;
   border-radius: 16px;
   background-color: #fff;
-  margin-right: 3vw;
   padding: 1rem;
 
   display: flex;
@@ -55,6 +55,8 @@ const BestTalkDiv = styled(FlexBox)`
 
   width: 100%;
   flex-direction: column;
+  margin-bottom: 1.5rem;
+
   ${(props) =>
     props.split &&
     css`
@@ -67,10 +69,12 @@ const BestTalkDiv = styled(FlexBox)`
       }
       flex: 0 0 85%;
       flex-direction: row;
+      margin-right: 3vw;
+      margin-bottom: 0;
     `};
 `;
 
-const MaskValueSpan = styled.span`
+const MaskValueBtn = styled.span`
   ${({ theme, active }) => {
     return css`
       border: 1px solid ${theme.colors.gray};
@@ -78,13 +82,19 @@ const MaskValueSpan = styled.span`
       font-size: 1rem;
       color: ${theme.colors.gray};
       padding: 0.3rem 0.8rem;
-      cursor: pointer;
-      ${active &&
-      css`
-        border-color: ${theme.colors.skyBlue};
-        color: ${theme.colors.skyBlue};
-        background-color: #fff;
-      `}
+      outline: 0
+      box-shadow: none;
+        ${
+          active &&
+          css`
+            border: 1px solid ${theme.colors.skyBlue};
+            color: ${theme.colors.skyBlue};
+            /* background-color: #fff; */
+          `
+        };
+      :focus{
+        outline: none !important;
+      }
     `;
   }}
 `;
@@ -97,11 +107,10 @@ const CommonSearchInput = styled.input`
   margin: 0 1rem;
   padding: 2rem;
   padding-right: 40px;
-  background-image: url("/images/search.png");
+  background-image: url("./images/search.png");
   background-size: 15px;
   background-repeat: no-repeat;
   background-position: 97% center;
-  box-sizing: border-box;
 `;
 
 const BottomBox = styled.div`
@@ -114,16 +123,23 @@ const BottomBox = styled.div`
 `;
 
 const TalkBoardTitle = styled.div`
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: bolder;
   margin-bottom: 0.5rem;
 `;
 
 const TalkBoardContent = styled.div`
-  min-height: 5rem;
+  min-height: 3rem;
   font-size: 0.8rem;
   font-weight: 400;
   margin-bottom: 0.5rem;
+`;
+
+const TalkBoardImg = styled.image`
+  border-radius: 16px;
+  border: 1px solid ${(props) => props.theme.colors.gray};
+  width: 15rem;
+  height: 15rem;
 `;
 
 export const TalkTilte = React.memo(({ printStr }) => {
@@ -137,7 +153,7 @@ export const BestTalkComp = React.memo(({ datas }) => {
       <LongScrollDiv>
         {datas.length !== 0 &&
           datas.map((data, index) => (
-            <BestTalkDiv key={index} split>
+            <TalkDiv key={index} split>
               <div>1</div>
               <div style={{ textAlign: "left" }}>
                 <FlexBetweenBox>
@@ -156,7 +172,7 @@ export const BestTalkComp = React.memo(({ datas }) => {
                   <span>2</span>
                 </div>
               </div>
-            </BestTalkDiv>
+            </TalkDiv>
           ))}
       </LongScrollDiv>
     </>
@@ -190,20 +206,38 @@ const SearchBox = React.memo(({ searchValue, onChange }) => {
   );
 });
 
+const LongScrollComp = React.memo(({ datas = [], PrintComp = null }) => {
+  return (
+    <LongScrollDiv>
+      {datas.length !== 0 && datas.map((data, index) => <PrintComp />)}
+    </LongScrollDiv>
+  );
+});
+/**
+ * datas = value 리스트
+ * changeActive = active 활성화함수
+ */
+
 const MaskValue = React.memo(
-  ({ datas = [], changeActive = null, active = null, margin = null }) => {
+  ({
+    datas = [],
+    changeActive = null,
+    active = null,
+    margin = null,
+    width = null
+  }) => {
     return (
-      <FlexBetweenBox margin={margin}>
+      <FlexBetweenBox margin={margin} width={width}>
         {datas.length !== 0 &&
           datas.map((value) => (
-            <MaskValueSpan
+            <MaskValueBtn
               key={value.nm}
               onClick={changeActive}
               active={value.active || active}
               data-nm={value.nm}
             >
               {value.nm}
-            </MaskValueSpan>
+            </MaskValueBtn>
           ))}
       </FlexBetweenBox>
     );
@@ -219,27 +253,32 @@ export const BottomBtn = React.memo(({ scrollToTop }) => {
   );
 });
 
-export const TalkComp = React.memo(({ datas }) => {
+const TestDiv = () => {
+  return <TalkBoardImg />;
+};
+
+export const TalkComp = React.memo(({ datas = [] }) => {
   return (
     <div>
-      <BestTalkDiv>
-        <FlexBetweenBox>
-          <div>
-            <span>뷰넥스</span>
-            <span>BEST</span>
-          </div>
-          <div>2021.10.21</div>
-        </FlexBetweenBox>
-        <TalkBoardTitle>수분 집중 촉촉한 마스크팩</TalkBoardTitle>
-        <TalkBoardContent>
-          ㄻㄴㅇㅇㅁㄴㅇ러ㅏㄴ웃러ㅑㅏㅈ둑러ㅏ노ㅜ거ㅑㅏㄷ주처ㅑㅏㄴ
-        </TalkBoardContent>
-        <MaskValue />
-        <div>
-          <span>1</span>
-          <span>2</span>
-        </div>
-      </BestTalkDiv>
+      {datas.length !== 0 &&
+        datas.map((data, index) => (
+          <TalkDiv key={index}>
+            <FlexBetweenBox>
+              <span>뷰넥스</span>
+              <span>2021.10.21</span>
+            </FlexBetweenBox>
+            <TalkBoardTitle>수분 집중 촉촉한 마스크팩</TalkBoardTitle>
+            <TalkBoardContent>
+              ㄻㄴㅇㅇㅁㄴㅇ러ㅏㄴ웃러ㅑㅏㅈ둑러ㅏ노ㅜ거ㅑㅏㄷ주처ㅑㅏㄴ
+            </TalkBoardContent>
+            <MaskValue datas={datas} width={`100%`} active />
+            <LongScrollComp datas={datas} PrintComp={TestDiv} />
+            <div>
+              <span>1</span>
+              <span>2</span>
+            </div>
+          </TalkDiv>
+        ))}
     </div>
   );
 });

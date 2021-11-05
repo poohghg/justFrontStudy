@@ -7,13 +7,13 @@ import {
   BottomBtn
 } from "./talkComp/TalkCommonComp";
 
-const TalkBoardWrap = styled.div`
+const Wrap = styled.div`
   position: relative;
-  width: 100%;
   background-color: #f0f0f0;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
   overflow: auto;
-  padding: 2rem;
+  padding: 1rem;
 `;
 
 const data = [{ text: 1 }, { text: 2 }, { text: 3 }, { text: 4 }, { text: 5 }];
@@ -29,7 +29,6 @@ const initActiveValue = [
 const TalkBoard = () => {
   const [activeValue, setactiveValue] = useState(initActiveValue);
   const [searchValue, setsearchValue] = useState("");
-  const mainRef = useRef(null);
 
   const changeActive = useCallback((e) => {
     const parmaNm = e.target.dataset.nm;
@@ -43,20 +42,17 @@ const TalkBoard = () => {
   const onChange = useCallback((e) => {
     const { value } = e.target;
     setsearchValue(value);
-  });
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
       behavior: "smooth",
       top: 0
     });
-    console.log(mainRef.current.scrollHeight);
-    console.log(mainRef.current.offsetTop);
-    console.log(mainRef.current.scrollTop);
   };
 
   return (
-    <TalkBoardWrap ref={mainRef}>
+    <Wrap>
       <div>맨위 공통 헤더</div>
       <BestTalkComp datas={data} />
       <TalkSearchComp
@@ -65,9 +61,9 @@ const TalkBoard = () => {
         searchValue={searchValue}
         onChange={onChange}
       />
-      <TalkComp />
+      <TalkComp datas={initActiveValue} />
       <BottomBtn scrollToTop={scrollToTop} />
-    </TalkBoardWrap>
+    </Wrap>
   );
 };
 
