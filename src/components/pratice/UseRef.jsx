@@ -25,7 +25,7 @@ const ScrollBox = React.forwardRef((props, ref) => {
 
   useImperativeHandle(ref, () => ({
     reallyFocus: () => {
-      thisBox.current.focus();
+          thisBox.current.focus();
     },
     getValue: () => {
       return thisBox.current.value;

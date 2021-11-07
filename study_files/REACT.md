@@ -329,7 +329,7 @@ dispatch를 통해 반환 되는 새로운 상태의 state가 있다면 컴포�
 
 1.사이드임팩트(useEffect)
 
-​ useEffect는 컴포넌트들이 render와 paint된후 실행되며, 비동기적으로 실행된다. paint된후 실행되기 때문에 useEffect의 영향으로 리패인트가 되면 화면이 깜박이는 경우가 있다.
+ useEffect는 컴포넌트들이 render와 paint된후 실행되며, 비동기적으로 실행된다. paint된후 실행되기 때문에 useEffect의 영향으로 리패인트가 되면 화면이 깜박이는 경우가 있다.
 
 ![img](https://miro.medium.com/max/411/1*7jCVSsm5-gEoXsgmfGqQyw.png)
 
@@ -347,9 +347,16 @@ useLayoutEffect의 경우 컴포넌트들이 render된 후 실행되며, 그 이
 
 `useSelector`, `useDispatch`, `useStore` 과 같은 [Hooks](https://react-redux.js.org/api/hooks)를 사용하면 손쉽게 상태를 조회하거나 액션을 디스패치 할 수 있다.
 
+### 구조
+
+- 단방향 데이터 플로우다.
+- Provider / store
+- useDispatch / dispatch -> 상태 업데이트
+- useSelector => 상태값 조회
+
 ##### 리덕스 규칙
 
-​ 1 . 하나의 애플리케이션에선 단 한개의 스토어를 만들어서 사용해야한다.물론 대규모 프로젝트에서 상태 관리값이 세분화되면 여러개의 스토어를 사용해도 된다.
+ 1 . 하나의 애플리케이션에선 단 한개의 스토어를 만들어서 사용해야한다.물론 대규모 프로젝트에서 상태 관	리값이 세분화되면 여러개의 스토어를 사용해도 된다.
 
 2. 데이터 불변성을 유지해야 한다. 이는 Immutable 즉 리덕스에서 불변성을 유지해야 하는 이유는 내부적으로 데이터가 변경 되는 것을 감지하기 위하여 [shallow equality](https://redux.js.org/docs/faq/ImmutableData.html#how-redux-uses-shallow-checking) 검사를 하기 때문이다. 이를 통하여 객체의 변화를 감지 할 때 객체의 깊숙한 안쪽까지 비교를 하는 것이 아니라 겉핥기 식으로 비교를 하여 좋은 성능을 유지할 수 있다. 불변성을 가지기 때문에 새로운 객채를 할당해준다. 수정 x 변경 x
 3. .리듀서는 순수한 함수여야 한다.
